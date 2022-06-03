@@ -13,9 +13,14 @@ export const useUser = () => {
 
 function ContextProvider({ children }) {
   const [user, setUser] = useState({
-    name: undefined,
+    // name: undefined,
+    // email: undefined,
+    // picture: undefined,
+    // ! temp!
+    name: 'עופר',
     email: undefined,
     picture: undefined,
+    // ! temp!
   });
 
   return (

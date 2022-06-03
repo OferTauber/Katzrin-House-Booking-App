@@ -1,7 +1,7 @@
 import { useGlobalContext } from '../../../utils/context';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
-import Calander from '../calander';
+import Calander from '../calander/calander';
 import Blog from './blog';
 import Info from '../info';
 import './main.css';
