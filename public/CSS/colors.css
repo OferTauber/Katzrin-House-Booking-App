@@ -1,0 +1,11 @@
+:root {
+  --color-yellow: yellow;
+  --color-bold: #4e944f;
+  --color-primery: #83bd75;
+  --color-secondary: #b4e197;
+  --color-gray: #e9efc0;
+}
+
+html {
+  font-size: 10px;
+}

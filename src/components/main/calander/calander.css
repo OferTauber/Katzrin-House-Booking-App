@@ -1,0 +1,68 @@
+:root {
+  --calander-header-higet: 2rem;
+}
+
+.calander-container {
+  width: 100vmin;
+  height: 100vmin;
+  margin: 1rem auto;
+}
+
+.calander {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  border-color: var(--coloe-secondary);
+  border-radius: 10px;
+}
+
+.calander-header {
+  display: flex;
+  width: 100%;
+  height: var(--calander-header-higet);
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid;
+}
+
+.calander-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: calc(100% - var(--calander-header-higet));
+}
+
+.week {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.day {
+  width: calc(100% / 7);
+  height: calc(100%);
+
+  color: var(--color-bold);
+  border: 1px solid var(--color-gray);
+}
+
+.today {
+  background-color: var(--color-gray);
+}
+
+.selected {
+  background-color: var(--color-secondary);
+}
+.before {
+  color: lightgray;
+}
+
+/* !Temp */
+/* .calander-container {
+  background-color: aqua;
+} */
+
+/* if (beforeToday(day)) return 'before';
+if (isSelected(day, value)) return 'selected';
+if (isToday(day)) return 'today';
+return ''; */
