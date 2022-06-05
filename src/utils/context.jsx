@@ -3,12 +3,16 @@ import { createContext, useState, useContext } from 'react';
 export const globalContext = createContext();
 
 export const useGlobalContext = () => {
-  const { user, setUser } = useContext(globalContext);
-  return { user, setUser };
+  const { user, setUser, usersList, setUsersList } = useContext(globalContext);
+  return { user, setUser, usersList, setUsersList };
 };
 export const useUser = () => {
   const { user, setUser } = useContext(globalContext);
   return { user, setUser };
+};
+export const useUsersList = () => {
+  const { usersList, setUsersList } = useContext(globalContext);
+  return { usersList, setUsersList };
 };
 
 function ContextProvider({ children }) {
@@ -21,12 +25,13 @@ function ContextProvider({ children }) {
     // name: 'עופר',
     // email: undefined,
     // picture: undefined,
-    // id: 1
+    // id: 1,
     // ! temp!
   });
+  const [usersList, setUsersList] = useState([]);
 
   return (
-    <globalContext.Provider value={{ user, setUser }}>
+    <globalContext.Provider value={{ user, setUser, usersList, setUsersList }}>
       {children}
     </globalContext.Provider>
   );

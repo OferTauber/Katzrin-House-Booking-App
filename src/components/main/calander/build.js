@@ -14,7 +14,7 @@ export default function buildCalander(value, reservations) {
   // extracting only the rellevand reservations for this month
   thisMonthReservations.forEach((resrv) => {
     const datesArr = [resrv.from];
-    const endDate = resrv.to.clone().add(1, 'day');
+    const endDate = resrv.to.clone();
     while (datesArr[0].isBefore(endDate)) {
       const nextDay = datesArr[0].clone().add(1, 'day');
       datesArr.unshift(nextDay);
