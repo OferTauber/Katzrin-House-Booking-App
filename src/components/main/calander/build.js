@@ -1,18 +1,27 @@
-// import moment from 'moment';
+import moment from 'moment';
 
 export default function buildCalander(value, reservations) {
+  if (!reservations[0]) return [];
   const startDay = value.clone().startOf('month').startOf('week');
   const endDay = value.clone().endOf('month').endOf('week');
 
   const day = startDay.clone().subtract(1, 'day');
   const calander = [];
 
-  const thisMonthReservations = reservations.filter(
-    (resrv) => resrv.from.isBefore(endDay) && resrv.to.isAfter(startDay)
-  );
+  const thisMonthReservations = reservations.filter((resrv) => {
+    return (
+      moment(resrv.from).isBefore(endDay, 'day') &&
+      moment(resrv.to).isAfter(startDay, 'day')
+    );
+  });
 
   // extracting only the rellevand reservations for this month
   thisMonthReservations.forEach((resrv) => {
+    console.log(resrv.from);
+    resrv.from = moment(resrv.from);
+    resrv.to = moment(resrv.to);
+    console.log(resrv.from);
+
     const datesArr = [resrv.from];
     const endDate = resrv.to.clone();
     while (datesArr[0].isBefore(endDate)) {

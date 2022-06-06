@@ -3,3 +3,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.btn {
+  padding: 0.5rem;
+  border-radius: 100px;
+  border: 1px var(--color-primery) solid;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: rgba(10, 10, 10, 0.2);
+}

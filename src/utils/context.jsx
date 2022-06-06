@@ -3,8 +3,22 @@ import { createContext, useState, useContext } from 'react';
 export const globalContext = createContext();
 
 export const useGlobalContext = () => {
-  const { user, setUser, usersList, setUsersList } = useContext(globalContext);
-  return { user, setUser, usersList, setUsersList };
+  const {
+    user,
+    setUser,
+    usersList,
+    setUsersList,
+    // reservationsList,
+    // setReservationsList,
+  } = useContext(globalContext);
+  return {
+    user,
+    setUser,
+    usersList,
+    setUsersList,
+    // reservationsList,
+    // setReservationsList,
+  };
 };
 export const useUser = () => {
   const { user, setUser } = useContext(globalContext);
@@ -14,6 +28,10 @@ export const useUsersList = () => {
   const { usersList, setUsersList } = useContext(globalContext);
   return { usersList, setUsersList };
 };
+// export const useReservationsList = () => {
+//   const { reservationsList, setReservationsList } = useContext(globalContext);
+//   return { reservationsList, setReservationsList };
+// };
 
 function ContextProvider({ children }) {
   const [user, setUser] = useState({
@@ -29,9 +47,19 @@ function ContextProvider({ children }) {
     // ! temp!
   });
   const [usersList, setUsersList] = useState([]);
+  const [reservationsList, setReservationsList] = useState([]);
 
   return (
-    <globalContext.Provider value={{ user, setUser, usersList, setUsersList }}>
+    <globalContext.Provider
+      value={{
+        user,
+        setUser,
+        usersList,
+        setUsersList,
+        reservationsList,
+        setReservationsList,
+      }}
+    >
       {children}
     </globalContext.Provider>
   );

@@ -1,8 +1,17 @@
 import axios from 'axios';
 
+const URL = 'https://629cd590e9358232f7615b13.mockapi.io/';
+
 export const getUsersList = async () => {
-  const data = await axios.get(
-    'https://629cd590e9358232f7615b13.mockapi.io/users'
-  );
+  const data = await axios.get(URL + 'users');
   return data;
+};
+
+export const postReservation = async (reservation) => {
+  axios.post(URL + 'reservations', reservation);
+};
+
+export const getAllReservations = async () => {
+  const data = await axios.get(URL + 'reservations');
+  return data.data;
 };

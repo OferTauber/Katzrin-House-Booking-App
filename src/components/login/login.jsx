@@ -3,10 +3,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from 'jwt-decode';
 import { useUser, useUsersList } from '../../utils/context';
 import { getUsersList } from '../../utils/axios';
-
-const Spinner = () => {
-  return <h2>Loading ...</h2>;
-};
+import Spinner from '../../utils/spinner';
 
 const Login = () => {
   const { setUser } = useUser();

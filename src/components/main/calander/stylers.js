@@ -14,10 +14,20 @@ function isToday(day) {
   return day.isSame(new Date(), 'day');
 }
 
-export default function dayStyle(day, value) {
-  if (beforeThisMonth(day, value)) return 'before';
-  if (afterThisMonth(day, value)) return 'before';
-  if (isSelected(day, value)) return 'selected';
-  if (isToday(day)) return 'today';
-  return '';
+export default function dayStyle(day, value, type) {
+  const date = day.date;
+  let clssses = '';
+  if (beforeThisMonth(date, value)) clssses += ' not-in-current-month';
+  if (afterThisMonth(date, value)) clssses += ' not-in-current-month';
+  if (isSelected(date, value)) clssses += ' selected';
+  if (isToday(date)) clssses += ' today';
+  if (isToday(date)) console.log(day);
+
+  if (type && type.onedByUser) clssses += ' booked-by-user';
+  if (type && !type.onedByUser) clssses += ' booked-by-other';
+  if (type && type.userIsInvaited) clssses += ' user-invaited';
+
+  if (type && type.open) clssses += ' open';
+  if (type && !type.open) clssses += ' close';
+  return clssses;
 }

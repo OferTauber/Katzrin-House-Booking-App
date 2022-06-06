@@ -7,7 +7,6 @@ import Main from './main/main/main';
 
 function App() {
   const { user } = useGlobalContext();
-  console.log(user);
 
   if (!user.id) return <Login />;
 

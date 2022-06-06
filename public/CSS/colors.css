@@ -4,6 +4,11 @@
   --color-primery: #83bd75;
   --color-secondary: #b4e197;
   --color-gray: #e9efc0;
+  --color-booked-by-user: blue;
+  --color-booked-by-other: yellow;
+  --color-user-is-invated: pink;
+  --color-open: coral;
+  --color-close: red;
 }
 
 html {

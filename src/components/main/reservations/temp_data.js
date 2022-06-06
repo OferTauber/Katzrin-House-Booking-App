@@ -15,7 +15,7 @@ const data = [
     to: moment().add(13, 'day'),
     owner: '2',
     open: true,
-    invited: [3, 1],
+    invited: ['3', '1'],
   },
   {
     id: '3',
@@ -23,16 +23,16 @@ const data = [
     to: moment().add(29, 'day'),
     owner: '3',
     open: true,
-    invited: [1],
+    invited: ['2'],
   },
-  // {
-  //   id: '4',
-  //   from: moment().add(28, 'day'),
-  //   to: moment().add(32, 'day'),
-  //   owner: '1',
-  //   open: true,
-  //   invited: [],
-  // },
+  {
+    id: '4',
+    from: moment().add(6, 'day'),
+    to: moment().add(8, 'day'),
+    owner: '2',
+    open: false,
+    invited: [],
+  },
 ];
 
 export default data;
