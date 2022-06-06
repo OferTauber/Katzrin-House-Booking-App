@@ -9,7 +9,7 @@ import Reservation from './reservation/reservation';
 import Spinner from '../../../utils/spinner';
 import { useUser } from '../../../utils/context';
 import reservationType from './reservation/reservation_type';
-import { getAllReservations, postReservation } from '../../../utils/axios';
+import { getAllReservations } from '../../../utils/axios';
 
 function Calander() {
   const [calander, setCalander] = useState([]);
@@ -20,7 +20,7 @@ function Calander() {
   useEffect(() => {
     const fetchReservationList = async () => {
       const fetchedData = await getAllReservations();
-      console.log(fetchedData);
+
       setReservationsList(fetchedData);
     };
     // for (const res of data) {
@@ -44,7 +44,7 @@ function Calander() {
             <div className="week" key={`w${index}`}>
               {week.map((day, index) => {
                 const type = reservationType(day.reservation, user);
-                // const style = dayStyle(day, value, type);
+
                 return (
                   <div
                     key={`d${index}`}
@@ -54,7 +54,12 @@ function Calander() {
                     }}
                   >
                     {day.date.format('D').toString()}
-                    <Reservation reservation={day.reservation} status={type} />
+                    <Reservation
+                      reservation={day.reservation}
+                      status={type}
+                      reservationsList={reservationsList}
+                      setReservationsList={setReservationsList}
+                    />
                     <br />
                   </div>
                 );

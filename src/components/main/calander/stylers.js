@@ -21,7 +21,6 @@ export default function dayStyle(day, value, type) {
   if (afterThisMonth(date, value)) clssses += ' not-in-current-month';
   if (isSelected(date, value)) clssses += ' selected';
   if (isToday(date)) clssses += ' today';
-  if (isToday(date)) console.log(day);
 
   if (type && type.onedByUser) clssses += ' booked-by-user';
   if (type && !type.onedByUser) clssses += ' booked-by-other';

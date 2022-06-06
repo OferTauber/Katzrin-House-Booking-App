@@ -15,3 +15,11 @@ export const getAllReservations = async () => {
   const data = await axios.get(URL + 'reservations');
   return data.data;
 };
+
+export const deleteReservation = async (id) => {
+  axios.delete(URL + 'reservations/' + id);
+};
+
+export const editReservation = async (id, updatedReservation) => {
+  axios.put(URL + 'reservations/' + id, updatedReservation);
+};

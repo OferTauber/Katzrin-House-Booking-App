@@ -2,6 +2,7 @@ import moment from 'moment';
 
 export default function buildCalander(value, reservations) {
   if (!reservations[0]) return [];
+
   const startDay = value.clone().startOf('month').startOf('week');
   const endDay = value.clone().endOf('month').endOf('week');
 
@@ -17,10 +18,8 @@ export default function buildCalander(value, reservations) {
 
   // extracting only the rellevand reservations for this month
   thisMonthReservations.forEach((resrv) => {
-    console.log(resrv.from);
     resrv.from = moment(resrv.from);
     resrv.to = moment(resrv.to);
-    console.log(resrv.from);
 
     const datesArr = [resrv.from];
     const endDate = resrv.to.clone();
@@ -33,16 +32,17 @@ export default function buildCalander(value, reservations) {
 
   // transforming the reservatios from a "from-to" format into day-bay-day array formt
   const dayByDayReservations = [].concat(
-    ...thisMonthReservations.map((resrv) =>
-      resrv.datesArr.map((date) => {
+    ...thisMonthReservations.map((resrv) => {
+      return resrv.datesArr.map((date) => {
         return {
           date: date,
           owner: resrv.owner,
           open: resrv.open,
           invited: resrv.invited,
+          id: resrv.id,
         };
-      })
-    )
+      });
+    })
   );
 
   // generating all month's relevant days
