@@ -16,7 +16,7 @@ export const getAllReservations = async () => {
   return data.data;
 };
 
-export const deleteReservation = async (id) => {
+export const deleteReservationAPI = async (id) => {
   axios.delete(URL + 'reservations/' + id);
 };
 
