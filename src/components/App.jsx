@@ -1,9 +1,7 @@
-// import axios from 'axios';
 import React from 'react';
 import Login from './login/login';
 import { useGlobalContext } from '../utils/context';
 import Main from './main/main/main';
-// import getUsersList from '../utils/axios';
 
 function App() {
   const { user } = useGlobalContext();
