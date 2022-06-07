@@ -4,18 +4,19 @@ import './calander.css';
 import buildCalander from './build';
 import dayStyle from './stylers';
 import CalanderHeader from './calander_header';
-// import data from '../reservations/temp_data';
 import Reservation from './reservation/reservation';
 import Spinner from '../../../utils/spinner';
 import { useUser } from '../../../utils/context';
 import reservationType from './reservation/reservation_type';
 import { getAllReservations } from '../../../utils/axios';
+import NewReservation from './reservation/new_reservation/new_reservation';
 
 function Calander() {
   const [calander, setCalander] = useState([]);
   const [value, setValue] = useState(moment());
   const [reservationsList, setReservationsList] = useState([]);
   const { user } = useUser();
+  const [bookinIsOpen, setBookingIsOpen] = useState(false);
 
   useEffect(() => {
     const fetchReservationList = async () => {
@@ -23,9 +24,7 @@ function Calander() {
 
       setReservationsList(fetchedData);
     };
-    // for (const res of data) {
-    //   postReservation(res);
-    // }
+
     fetchReservationList();
   }, []);
 
@@ -37,6 +36,18 @@ function Calander() {
 
   return (
     <div className="calander-container container">
+      <button onClick={() => console.log(reservationsList, value)}>לחצ</button>
+      <br />
+      <br />
+      <br />
+      {bookinIsOpen && (
+        <NewReservation
+          setBookingIsOpen={setBookingIsOpen}
+          setReservationsList={setReservationsList}
+          reservationsList={reservationsList}
+          date={value}
+        />
+      )}
       <div className="calander">
         <CalanderHeader value={value} setValue={setValue} />
         <div className="calander-body">
@@ -59,6 +70,7 @@ function Calander() {
                       status={type}
                       reservationsList={reservationsList}
                       setReservationsList={setReservationsList}
+                      setBookingIsOpen={setBookingIsOpen}
                     />
                     <br />
                   </div>

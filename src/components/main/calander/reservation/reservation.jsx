@@ -6,6 +6,7 @@ const Reservation = ({
   status,
   reservationsList,
   setReservationsList,
+  setBookingIsOpen,
 }) => {
   const { user, usersList } = useGlobalContext();
 
@@ -20,16 +21,10 @@ const Reservation = ({
     const { owner, invited, open, id, from, to } = {
       ...tempReservationsList[reservationToCancleIndex],
     };
-    // const userIndex = invited.find((guestId) => {
-    //   console.log(guestId, user.id, guestId * 1 === user.id * 1);
-    //   return guestId * 1 === user.id * 1;
-    // });
 
     const updatedInvited = invited.filter(
       (guestId) => guestId + '' !== user.id + ''
     );
-
-    console.log(updatedInvited);
 
     const updatedReservation = {
       owner,
@@ -80,7 +75,7 @@ const Reservation = ({
 
   const onReservationCancelation = (event, reservation) => {
     event.stopPropagation();
-    console.log(reservation);
+
     if (reservation.invited[0]) {
       quitFromReservation(reservation);
     } else {
@@ -111,11 +106,11 @@ const Reservation = ({
     const newOwner = invited.shift();
     const updatedReservation = {
       owner: newOwner,
-      id,
       open,
       from: from._i,
       to: to._i,
       invited,
+      id,
     };
 
     tempReservationsList.splice(reservationToEditIndex, 1, updatedReservation);
@@ -131,21 +126,20 @@ const Reservation = ({
     }).name_he;
   };
 
-  if (!reservation) return <></>;
-
-  const { onedByUser, open, userIsInvaited } = status;
+  const { onedByUser, open, userIsInvaited, dateIsFree } = status;
+  if (dateIsFree)
+    return (
+      <div className="btn book" onClick={(e) => setBookingIsOpen(true)}>
+        הזמנה
+      </div>
+    );
 
   const { owner, invited } = reservation;
   const ownerName = getUserNameById(owner);
   const invtedNames = invited.map((user) => getUserNameById(user)).join(', ');
 
   return (
-    <div
-      className="reservation"
-      onClick={(e) => {
-        console.log(status);
-      }}
-    >
+    <div className="reservation">
       <p className="owner">מזמין: {ownerName}</p>
       {invtedNames && <p>מצטרפים: {invtedNames}</p>}
       {onedByUser && (

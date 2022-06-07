@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const URL = 'https://629cd590e9358232f7615b13.mockapi.io/';
+const URL_RESERVATIONS = URL + 'reservations';
 
 export const getUsersList = async () => {
   const data = await axios.get(URL + 'users');
@@ -8,18 +9,22 @@ export const getUsersList = async () => {
 };
 
 export const postReservation = async (reservation) => {
-  axios.post(URL + 'reservations', reservation);
+  axios.post(URL_RESERVATIONS, reservation);
 };
 
 export const getAllReservations = async () => {
-  const data = await axios.get(URL + 'reservations');
+  const data = await axios.get(URL_RESERVATIONS);
   return data.data;
 };
 
 export const deleteReservationAPI = async (id) => {
-  axios.delete(URL + 'reservations/' + id);
+  axios.delete(URL_RESERVATIONS + '/' + id);
 };
 
 export const editReservation = async (id, updatedReservation) => {
-  axios.put(URL + 'reservations/' + id, updatedReservation);
+  axios.put(URL_RESERVATIONS + '/' + id, updatedReservation);
+};
+
+export const postNewReservation = async (newReservation) => {
+  axios.post(URL_RESERVATIONS, newReservation);
 };

@@ -21,12 +21,13 @@ export default function dayStyle(day, value, type) {
   if (afterThisMonth(date, value)) clssses += ' not-in-current-month';
   if (isSelected(date, value)) clssses += ' selected';
   if (isToday(date)) clssses += ' today';
+  if (isToday(date) && type.dateIsFree) clssses += 'can-book';
 
-  if (type && type.onedByUser) clssses += ' booked-by-user';
-  if (type && !type.onedByUser) clssses += ' booked-by-other';
-  if (type && type.userIsInvaited) clssses += ' user-invaited';
+  if (!type.dateIsFree && type.onedByUser) clssses += ' booked-by-user';
+  if (!type.dateIsFree && !type.onedByUser) clssses += ' booked-by-other';
+  if (!type.dateIsFree && type.userIsInvaited) clssses += ' user-invaited';
 
-  if (type && type.open) clssses += ' open';
-  if (type && !type.open) clssses += ' close';
+  if (!type.dateIsFree && type.open) clssses += ' open';
+  if (!type.dateIsFree && !type.open) clssses += ' close';
   return clssses;
 }

@@ -1,11 +1,14 @@
 export default function reservationType(reservation, currentUser) {
-  if (!reservation) return;
-
   const type = {
     onedByUser: false,
     open: false,
     userIsInvaited: false,
+    dateIsFree: true,
   };
+
+  if (!reservation) return type;
+
+  type.dateIsFree = false;
 
   if (reservation.owner + '' === currentUser.id + '') type.onedByUser = true;
   if (
