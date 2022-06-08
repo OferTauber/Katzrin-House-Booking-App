@@ -9,6 +9,9 @@
   border-radius: 100px;
   border: 1px var(--color-primery) solid;
   text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
 }
 
 .btn:hover {

@@ -1,13 +1,13 @@
-import { useGlobalContext } from '../../../utils/context';
+// import { useGlobalContext } from '../../../utils/context';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import Calander from '../calander/calander';
 import Blog from './blog';
-import Info from '../info';
+import Info from '../info/info';
 import './main.css';
 
 export default function Main() {
-  const { user } = useGlobalContext();
+  // const { user } = useGlobalContext();
   return (
     <div className="main">
       <BrowserRouter>

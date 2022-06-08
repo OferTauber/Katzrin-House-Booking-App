@@ -10,8 +10,8 @@ const LoginForm = ({ passDataToParent }) => {
   };
 
   return (
-    <form className="login-form" onSubmit={(e) => onFormSubmit(e)}>
-      <div className="user-email">
+    <form className="login-form column" onSubmit={(e) => onFormSubmit(e)}>
+      <div className="user-email form-item form-input">
         <label htmlFor="user-email">אימייל:</label>
         <input
           required
@@ -21,7 +21,7 @@ const LoginForm = ({ passDataToParent }) => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className="user-password">
+      <div className="user-password form-input form-item">
         <label htmlFor="user-password">סיסמה:</label>
         <input
           required
@@ -31,7 +31,7 @@ const LoginForm = ({ passDataToParent }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <input type="submit" value="כניסה" />
+      <input type="submit" className="btn form-item" value="כניסה" />
     </form>
   );
 };

@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 const URL = 'https://629cd590e9358232f7615b13.mockapi.io/';
+
 const URL_RESERVATIONS = URL + 'reservations';
 const URL_USERS = URL + 'users';
+const URL_PANTRY = URL + 'pantry/1';
 
 export const getUsersList = async () => {
   const data = await axios.get(URL_USERS);
@@ -32,4 +34,18 @@ export const postNewReservation = async (newReservation) => {
 
 export const postNewUser = async (newUser) => {
   axios.post(URL_USERS, newUser);
+};
+
+export const fetchPantry = async () => {
+  const data = await axios.get(URL_PANTRY);
+  return data;
+};
+
+export const updatePantry = async (newPantryArray, date, userId) => {
+  const updatedPantry = {
+    items: newPantryArray,
+    update: date,
+    updatedBy: userId,
+  };
+  axios.put(URL_PANTRY, updatedPantry);
 };

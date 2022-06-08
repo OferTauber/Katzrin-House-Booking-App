@@ -49,28 +49,31 @@ const NewReservation = ({
   };
 
   return (
-    <dialog open className="new-reservation">
-      <p>הזמנה חדשה :</p>
-      מתאריך:
-      <input
-        type="date"
-        value={from}
-        max={to}
-        onChange={(e) => {
-          onDateChange(e, setFrom);
-        }}
-      />
-      <br />
-      עד תאריך:
-      <input
-        type="date"
-        value={to}
-        min={from}
-        onChange={(e) => {
-          onDateChange(e, setTo);
-        }}
-      />
-      <div>
+    <dialog open className="new-reservation column">
+      <h1>הזמנה חדשה :</h1>
+      <div className="new-reservation-box">
+        <h4>מתאריך:</h4>
+        <input
+          type="date"
+          value={from}
+          max={to}
+          onChange={(e) => {
+            onDateChange(e, setFrom);
+          }}
+        />
+      </div>
+      <div className="new-reservation-box">
+        <h4>עד תאריך:</h4>
+        <input
+          type="date"
+          value={to}
+          min={from}
+          onChange={(e) => {
+            onDateChange(e, setTo);
+          }}
+        />
+      </div>
+      <div className="new-reservation-open">
         <input
           type="checkbox"
           id="is-open"
@@ -79,16 +82,18 @@ const NewReservation = ({
         />
         <label htmlFor="is-open">משתמשים אחרים יכולים להצטרף להזמנה</label>
       </div>
-      <div className="btn" onClick={onNewReservation}>
-        {datesAreFree ? 'שמירת הזמנה' : 'התאריך תפוס'}
-      </div>
-      <div
-        className="btn"
-        onClick={() => {
-          setBookingIsOpen(false);
-        }}
-      >
-        ביטול
+      <div className="new-reservation-btns">
+        <div className="btn" onClick={onNewReservation}>
+          {datesAreFree ? 'שמירת הזמנה' : 'התאריך תפוס'}
+        </div>
+        <div
+          className="btn"
+          onClick={() => {
+            setBookingIsOpen(false);
+          }}
+        >
+          ביטול
+        </div>
       </div>
     </dialog>
   );

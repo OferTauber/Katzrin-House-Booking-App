@@ -1,5 +1,38 @@
+:root {
+  --nav-height: 6rem;
+}
+
 nav {
-  height: 100px;
-  background-color: tan;
+  height: var(--nav-height);
+  background-color: var(--color-bold);
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav-name {
+  font-size: 2rem;
+  color: var(--color-gray);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav .btn {
+  background-color: var(--color-secondary);
+  color: var(--color-bold);
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
 }

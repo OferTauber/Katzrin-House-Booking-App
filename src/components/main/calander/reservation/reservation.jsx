@@ -120,7 +120,7 @@ const Reservation = ({
   };
 
   const getUserNameById = (id) => {
-    if (id + '' === user.id + '') return 'אתה';
+    if (id + '' === user.id + '') return 'את/ה';
     return usersList[0].find((user) => {
       return user.id + '' === id + '';
     }).name_he;
@@ -129,8 +129,11 @@ const Reservation = ({
   const { onedByUser, open, userIsInvaited, dateIsFree } = status;
   if (dateIsFree)
     return (
-      <div className="btn book" onClick={(e) => setBookingIsOpen(true)}>
-        הזמנה
+      <div
+        className="btn reservation-btn book"
+        onClick={(e) => setBookingIsOpen(true)}
+      >
+        הזמן/י
       </div>
     );
 
@@ -139,39 +142,49 @@ const Reservation = ({
   const invtedNames = invited.map((user) => getUserNameById(user)).join(', ');
 
   return (
-    <div className="reservation">
-      <p className="owner">מזמין: {ownerName}</p>
-      {invtedNames && <p>מצטרפים: {invtedNames}</p>}
+    <>
+      <p className="owner">{ownerName}</p>
+
+      {invtedNames && (
+        <>
+          <p>*</p>
+          <div className="invided-list">
+            <p>מצטרפים: {invtedNames}</p>
+          </div>
+        </>
+      )}
       {onedByUser && (
         <div
-          className="btn cancel-owne"
+          className="btn cancel-owne reservation-btn"
           onClick={(e) => onReservationCancelation(e, reservation)}
         >
-          בטל הזמנה
+          בטל/י
         </div>
       )}
       {userIsInvaited && (
         <div
-          className="btn cancel-join"
+          className="btn cancel-join reservation-btn"
           onClick={(e) => {
             onInvitationCancelation(e, reservation.id);
           }}
         >
-          בטל השתתפות
+          צא/י
         </div>
       )}
       {!onedByUser && open && !userIsInvaited && (
         <div
-          className="btn join"
+          className="btn join reservation-btn"
           onClick={(e) => {
             onInvitationAcception(e, reservation.id);
           }}
         >
-          הצטרף
+          גם אני!
         </div>
       )}
-      {!onedByUser && !open && <p className="close-massege">הזמנה סגורה</p>}
-    </div>
+      {!onedByUser && !open && (
+        <p className="close-massege">זוהי הזמנה סגורה</p>
+      )}
+    </>
   );
 };
 

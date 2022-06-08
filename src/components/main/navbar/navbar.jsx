@@ -6,10 +6,10 @@ export default function Navbar() {
   const { user } = useGlobalContext();
   return (
     <nav>
-      <div className="upper-nav">
+      <div className="nav-name">
         <p>שלום {user.name}</p>
       </div>
-      <div className="lower-sticky-nav">
+      <div className="nav-buttons">
         <Link to="/" className="btn">
           לוח שנה
         </Link>

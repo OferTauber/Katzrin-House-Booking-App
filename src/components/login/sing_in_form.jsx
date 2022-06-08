@@ -18,8 +18,8 @@ const SignInForm = ({ passDataToParent }) => {
 
   return (
     <form className="login-form" onSubmit={(e) => onFormSubmit(e)}>
-      <div className="user-email">
-        <label htmlFor="sign-user-email">אימייל:</label>
+      <div className="user-email form-item form-input">
+        <label htmlFor="sign-user-email ">אימייל:</label>
         <input
           required
           id="sign-user-email"
@@ -28,7 +28,7 @@ const SignInForm = ({ passDataToParent }) => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className="user-name">
+      <div className="user-name form-item form-input">
         <label htmlFor="sign-user-name">שם:</label>
         <input
           required
@@ -38,7 +38,7 @@ const SignInForm = ({ passDataToParent }) => {
           onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div className="user-password">
+      <div className="user-password form-item form-input">
         <label htmlFor="sign-user-password">סיסמה:</label>
         <input
           required
@@ -48,7 +48,7 @@ const SignInForm = ({ passDataToParent }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div className="user-password-copy">
+      <div className="user-password-copy form-item form-input">
         <label htmlFor="sign-user-password-copy">אימות סיסמה:</label>
         <input
           required
@@ -59,7 +59,7 @@ const SignInForm = ({ passDataToParent }) => {
         />
       </div>
       {!passwordsMatch && <p className="error-massege">הסיסמאות אינן תואמות</p>}
-      <input type="submit" value="הרשמה" />
+      <input type="submit" value="הרשמה" className="form-item btn" />
     </form>
   );
 };

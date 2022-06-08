@@ -36,10 +36,6 @@ function Calander() {
 
   return (
     <div className="calander-container container">
-      <button onClick={() => console.log(reservationsList, value)}>לחצ</button>
-      <br />
-      <br />
-      <br />
       {bookinIsOpen && (
         <NewReservation
           setBookingIsOpen={setBookingIsOpen}
@@ -72,7 +68,6 @@ function Calander() {
                       setReservationsList={setReservationsList}
                       setBookingIsOpen={setBookingIsOpen}
                     />
-                    <br />
                   </div>
                 );
               })}

@@ -6,7 +6,7 @@ export default function CalanderHeader({ value, setValue }) {
   }
 
   function currYear() {
-    return value.format();
+    return value.format('YYYY');
   }
 
   function prevMonth() {
@@ -18,21 +18,21 @@ export default function CalanderHeader({ value, setValue }) {
 
   return (
     <div className="calander-header">
-      <div
+      <p
         className="calander-header-item previous"
         onClick={() => setValue(prevMonth())}
       >
-        {String.fromCharCode(171)}
-      </div>
+        {'<<'}
+      </p>
       <div className="calander-header-item current">
         {currMonthName()} {currYear()}
       </div>
-      <div
+      <p
         className="calander-header-item next"
         onClick={() => setValue(nextMonth())}
       >
-        {String.fromCharCode(187)}
-      </div>
+        {'>>'}
+      </p>
     </div>
   );
 }

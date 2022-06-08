@@ -6,11 +6,11 @@ import { getUsersList, postNewUser } from '../../utils/axios';
 import Spinner from '../../utils/spinner';
 import LoginForm from './login_form';
 import SignInForm from './sing_in_form';
+import './login.css';
 
 const Login = () => {
   const { setUser } = useUser();
   const { usersList, setUsersList } = useUsersList();
-  // const [signInPage, setSignInPage] = useState(true);
 
   useEffect(() => {
     fetchUsers(setUsersList);
@@ -75,18 +75,28 @@ const Login = () => {
   if (!usersList) return <Spinner />;
 
   return (
-    <div className="login">
-      <h1>ברוכים הבאים</h1>
-      <LoginForm passDataToParent={onUserManualLogin} />
-      <GoogleLogin
-        onSuccess={(credentialResponse) => {
-          onSuccessfulGoogleLogin(credentialResponse);
-        }}
-        onError={() => {
-          console.log('Login Failed');
-        }}
-      />
-      <SignInForm passDataToParent={onSignIn} />
+    <div className="container login-container column">
+      <div className="login column">
+        <h1>ברוכים הבאים</h1>
+        <div className="login-form-box form-box column">
+          <h3>התחברות</h3>
+          <LoginForm passDataToParent={onUserManualLogin} />
+          <GoogleLogin
+            onSuccess={(credentialResponse) => {
+              onSuccessfulGoogleLogin(credentialResponse);
+            }}
+            onError={() => {
+              console.log('Login Failed');
+            }}
+          />
+        </div>
+        <div className="signin-form-box form-box column">
+          <h3>הרשמה</h3>
+          <div className="form-item">
+            <SignInForm passDataToParent={onSignIn} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
