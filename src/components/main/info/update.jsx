@@ -1,11 +1,12 @@
 import { useGlobalContext } from '../../../utils/context';
 import moment from 'moment';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { postUpdate } from '../../../utils/axios';
 
 export default function Updates({ data, setData }) {
   const { user, usersList } = useGlobalContext();
   const [newUpdate, setNewUpdate] = useState('');
+  const [localDataCopy, setLocalDataCopy] = useState([]);
 
   const findUserNameByUserId = (userIdToFind) => {
     if (usersList && usersList[0] && userIdToFind) {
@@ -20,28 +21,41 @@ export default function Updates({ data, setData }) {
     }
   };
 
-  const updatesJsx = data.map((update, index) => {
-    return (
-      <div className="update-item" key={index}>
-        <div className="update-item-content">{update.content}</div>
-        <div className="update-item-meta-data">
-          <p>{findUserNameByUserId(update.createdBy)}</p>
-          <p>{moment(update.createdAt).format('YYYY-MM-DD')}</p>
-        </div>
-      </div>
-    );
-  });
+  useEffect(() => {
+    setLocalDataCopy(data);
+  }, [data]);
 
-  const onPostNewUpdate = () => {
+  const mapData = () => {
+    if (localDataCopy && localDataCopy[0]) {
+      return localDataCopy.map((update, index) => {
+        return (
+          <div className="update-item" key={index}>
+            <div className="update-item-content">{update.content}</div>
+            <div className="update-item-meta-data">
+              <p>{findUserNameByUserId(update.createdBy)}</p>
+              <p>{moment(update.createdAt).format('YYYY-MM-DD')}</p>
+            </div>
+          </div>
+        );
+      });
+    }
+  };
+
+  const onPostNewUpdate = async () => {
+    if (!newUpdate) return;
     const update = {
       createdAt: new Date(),
       createdBy: user.id,
       content: newUpdate,
     };
+    const prev = [...localDataCopy];
+    prev.push(update);
     console.log(update);
     setNewUpdate('');
-
-    void postUpdate;
+    await postUpdate(update);
+    setTimeout(() => {
+      setData();
+    }, 400);
   };
 
   return (
@@ -57,7 +71,7 @@ export default function Updates({ data, setData }) {
         </div>
       </div>
 
-      {updatesJsx}
+      {mapData()}
     </>
   );
 }

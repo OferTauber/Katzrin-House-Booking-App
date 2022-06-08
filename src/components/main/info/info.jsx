@@ -46,7 +46,10 @@ export default function Info() {
             toogleLine(displayStaticInfo, setDisplayStaticInfo);
           }}
         >
-          מידע שימושי
+          מידע שימושי{' '}
+          <i
+            class={`fa-solid fa-angle-${displayStaticInfo ? 'down' : 'left'}`}
+          ></i>
         </div>
         <div
           className={`panel panel-flex ${displayStaticInfo && 'panel-open'}`}
@@ -59,7 +62,8 @@ export default function Info() {
             toogleLine(displayPantry, setDisplayPantry);
           }}
         >
-          מזווה, מקרר ומקפיא
+          מזווה, מקרר ומקפיא{' '}
+          <i class={`fa-solid fa-angle-${displayPantry ? 'down' : 'left'}`}></i>
         </div>
         <div className={`panel panel-flex ${displayPantry && 'panel-open'}`}>
           <Pantry data={pantryData} />
@@ -70,7 +74,10 @@ export default function Info() {
             toogleLine(displayUpdates, setDisplayUpdates);
           }}
         >
-          עדכונים והודעות
+          עדכונים והודעות{' '}
+          <i
+            class={`fa-solid fa-angle-${displayUpdates ? 'down' : 'left'}`}
+          ></i>
         </div>
         <div
           className={`panel panel-updates ${displayUpdates && 'panel-open'}`}
