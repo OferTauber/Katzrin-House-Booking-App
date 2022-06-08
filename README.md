@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Golan Highest House App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React-based web-app for managing my family's holiday home in Katzrin
 
-## Available Scripts
+This is my mid-project (front-end only) of Fullstack Dev. Bootcamp - Appleseeds.
 
-In the project directory, you can run:
+## Background:
 
-### `npm start`
+I come from a large family - we are 10 cousins, most of us are married and some of us have children. Our parents decided to buy a holiday house together in Katzrin, which could be used by all of us.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Since none of us are live nearby - it is necessary to manage the house remotely - who is planning to come and visit? When? Does one of the family members want to hold an event for his friends, or is it a family vacation and the rest of the family is invited?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In addition - it is expected that significant and important information will be accumulated regarding the house - the password for WiFi, the amount and type of food left in the pantry, monitoring of technical faults and maintenance issues and the like.
 
-### `npm test`
+## Description
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app allows each family member to create an account for identification.
 
-### `npm run build`
+Using the calendar feature - family members can see when the house is vacant and when it is occupied. You can indicate whether the guest intends to stay at home and others are invited to join or he invites his friends and asks that the rest of the family not join.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The "Information" page presents 3 sources:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- "Static" information (hard encoder) which is not expected to change frequently - Internet password, information on transportation, opening hours of the grocery store, home address and the like.
+- Up-to-date list of the pantry - any user can edit it and it is updated immediately.
+- Updated list of messages and alerts - any user can add to the list (for example - a light bulb burned, mail arrived, etc.)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The document folder in this repository includes my initial planning for building the
+application - [you can find the planning document here](https://github.com/OferTauber/Katzrin-House-Booking-App/raw/main/docs/~%24ncept%20and%20design.docx)
 
-### `npm run eject`
+#### The project implements a number of common functions in WEB development:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- All the dynamic records are stored in mockAPI - the application executes pet, post, put and delete requests using Axios.
+- Switching pages is with React Route
+- Identification of the user using Google Identity
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Technologies used by the application:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- HTML
+- CSS
+- JS
+- React
+- Identify users using "Google Identity"
+- The dates are processed using JS torque
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## What next?
 
-## Learn More
+If you happen to take a look at my initial planning document (which you can
+[find here](https://github.com/OferTauber/Katzrin-House-Booking-App/raw/main/docs/~%24ncept%20and%20design.docx)) you must have noticed the pyramid chart which shows the features and capabilities I would like to implement in the most ideal situation.
+This to-do list of dreams-to-fulfillment mainly includes:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- The "Updates and Notifications" section - Adding the delete and edit option
+- Adding a "hiking-walking blog" with recommendations for trips in the area.
+- Add GPS location to blog posts, and to the home-address.
+- Pictures upload
+- Password reset option
+- Email alerts about your upcoming invitation, and attendees joining / canceling.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Demo
 
-### Code Splitting
+[katzrin-house.netlify.app](https://katzrin-house.netlify.app)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Screenshots
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![App Screenshot](https://raw.githubusercontent.com/OferTauber/Katzrin-House-Booking-App/main/docs/Login-cell.png)
+![App Screenshot](https://raw.githubusercontent.com/OferTauber/Katzrin-House-Booking-App/main/docs/calander-cell.png)
