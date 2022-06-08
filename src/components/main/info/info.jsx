@@ -2,29 +2,40 @@
 import { useState, useEffect } from 'react';
 import './info.css';
 import Spinner from '../../../utils/spinner';
-import { fetchPantry } from '../../../utils/axios';
+import { fetchPantry, getUpdats } from '../../../utils/axios';
 import Pantry from './pantry';
 import StaticInfo from './static_info';
+import Updates from './update';
 
 export default function Info() {
   const [displayPantry, setDisplayPantry] = useState(false);
   const [pantryData, setPantryData] = useState([]);
   const [displayStaticInfo, setDisplayStaticInfo] = useState(true);
-  // const [updatesData, setUpdatesData] = useState([]);
+  const [displayUpdates, setDisplayUpdates] = useState(false);
+  const [updatesData, setUpdatesData] = useState([]);
 
+  const fetchPantryData = async () => {
+    try {
+      const fetchedPantryData = await fetchPantry();
+      setPantryData(fetchedPantryData.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const fetchUpdatesData = async () => {
+    try {
+      const fetchedUpdatesData = await getUpdats();
+      setUpdatesData(fetchedUpdatesData);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
-    const fetchPantryData = async () => {
-      try {
-        const fetchedPantryData = await fetchPantry();
-        setPantryData(fetchedPantryData.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
     fetchPantryData();
+    fetchUpdatesData();
   }, []);
 
-  if (!pantryData) return <Spinner />;
+  if (!(pantryData && updatesData[0])) return <Spinner />;
 
   return (
     <div className="container">
@@ -37,7 +48,9 @@ export default function Info() {
         >
           מידע שימושי
         </div>
-        <div className={`panel ${displayStaticInfo && 'panel-open'}`}>
+        <div
+          className={`panel panel-flex ${displayStaticInfo && 'panel-open'}`}
+        >
           <StaticInfo />
         </div>
         <div
@@ -48,8 +61,21 @@ export default function Info() {
         >
           מזווה, מקרר ומקפיא
         </div>
-        <div className={`panel ${displayPantry && 'panel-open'}`}>
+        <div className={`panel panel-flex ${displayPantry && 'panel-open'}`}>
           <Pantry data={pantryData} />
+        </div>
+        <div
+          className="info-header"
+          onClick={() => {
+            toogleLine(displayUpdates, setDisplayUpdates);
+          }}
+        >
+          עדכונים והודעות
+        </div>
+        <div
+          className={`panel panel-updates ${displayUpdates && 'panel-open'}`}
+        >
+          <Updates data={updatesData} setData={fetchUpdatesData} />
         </div>
       </div>
     </div>

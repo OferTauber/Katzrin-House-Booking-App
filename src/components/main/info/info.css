@@ -20,9 +20,9 @@
 .panel {
   max-height: 0;
   overflow: hidden;
-  display: flex;
   width: 95%;
   margin: auto;
+  display: flex;
   align-items: flex-start;
 }
 
@@ -67,5 +67,43 @@
 }
 
 .static-data-item-content {
+  color: var(--color-bold);
+}
+
+.panel-updates {
+  flex-direction: column;
+  align-items: center;
+}
+.update-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1em;
+  padding-top: 0.5em;
+  border-bottom: 2px dashed var(--color-secondary);
+}
+
+.add-new-update input {
+  margin-left: 1rem;
+  flex: 1 1 200px;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  height: 3.5rem;
+}
+
+.add-new-update .btn {
+  font-size: 1.4rem;
+}
+
+.update-item-content {
+  flex: 1 1 200px;
+  font-size: 1.8rem;
+  margin-left: 1rem;
+}
+
+.update-item-meta-data {
+  font-size: 1.2rem;
   color: var(--color-bold);
 }

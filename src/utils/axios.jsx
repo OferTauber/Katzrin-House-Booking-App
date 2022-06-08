@@ -5,6 +5,7 @@ const URL = 'https://629cd590e9358232f7615b13.mockapi.io/';
 const URL_RESERVATIONS = URL + 'reservations';
 const URL_USERS = URL + 'users';
 const URL_PANTRY = URL + 'pantry/1';
+const URL_UPDATES = URL + 'updates';
 
 export const getUsersList = async () => {
   const data = await axios.get(URL_USERS);
@@ -48,4 +49,13 @@ export const updatePantry = async (newPantryArray, date, userId) => {
     updatedBy: userId,
   };
   axios.put(URL_PANTRY, updatedPantry);
+};
+
+export const getUpdats = async () => {
+  const data = await axios.get(URL_UPDATES);
+  return data.data;
+};
+
+export const postUpdate = async (newUpdate) => {
+  axios.post(URL_UPDATES, newUpdate);
 };
