@@ -25,7 +25,9 @@ The "Information" page presents 3 sources:
 - Updated list of messages and alerts - any user can add to the list (for example - a light bulb burned, mail arrived, etc.)
 
 The document folder in this repository includes my initial planning for building the
-application - [you can find the planning document here](https://github.com/OferTauber/Katzrin-House-Booking-App/raw/main/docs/~%24ncept%20and%20design.docx)
+application -
+
+##### [you can find the planning document here](https://github.com/OferTauber/Katzrin-House-Booking-App/raw/main/docs/~%24ncept%20and%20design.docx)
 
 #### The project implements a number of common functions in WEB development:
 
@@ -42,6 +44,10 @@ application - [you can find the planning document here](https://github.com/OferT
 - Identify users using "Google Identity"
 - The dates are processed using JS torque
 
+## Component's structure
+
+![App Screenshot](https://raw.githubusercontent.com/OferTauber/Katzrin-House-Booking-App/main/docs/Mid%20project%20-%20Components%20structure%20%20.jpg)
+
 ## What next?
 
 If you happen to take a look at my initial planning document (which you can
@@ -54,6 +60,14 @@ This to-do list of dreams-to-fulfillment mainly includes:
 - Pictures upload
 - Password reset option
 - Email alerts about your upcoming invitation, and attendees joining / canceling.
+
+## Let's get in touch!
+
+You are very welcome to contact me about the project - suggestions, questions, tips,
+requests, and of course - information about job offers
+
+- My mail: [ofertauber@gmail.com](mailto:ofertauber@gmail.com)
+- My LinkedIn profile [https://www.linkedin.com/in/ofertauber/](https://www.linkedin.com/in/ofertauber/)
 
 ## Demo
 
