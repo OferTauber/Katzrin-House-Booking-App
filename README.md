@@ -27,7 +27,7 @@ The "Information" page presents 3 sources:
 The document folder in this repository includes my initial planning for building the
 application -
 
-##### [you can find the planning document here](https://github.com/OferTauber/Katzrin-House-Booking-App/raw/main/docs/~%24ncept%20and%20design.docx)
+##### [you can find the planning document here](./docs/Concept%20and%20design.docx)
 
 #### The project implements a number of common functions in WEB development:
 
@@ -46,12 +46,12 @@ application -
 
 ## Component's structure
 
-![App Screenshot](https://raw.githubusercontent.com/OferTauber/Katzrin-House-Booking-App/main/docs/Mid%20project%20-%20Components%20structure%20%20.jpg)
+![App Screenshot](./docs/Mid%20project%20-%20Components%20structure%20%20.jpg)
 
 ## What next?
 
 If you happen to take a look at my initial planning document (which you can
-[find here](https://github.com/OferTauber/Katzrin-House-Booking-App/raw/main/docs/~%24ncept%20and%20design.docx)) you must have noticed the pyramid chart which shows the features and capabilities I would like to implement in the most ideal situation.
+[find here](./docs/Concept%20and%20design.docx)) you must have noticed the pyramid chart which shows the features and capabilities I would like to implement in the most ideal situation.
 This to-do list of dreams-to-fulfillment mainly includes:
 
 - The "Updates and Notifications" section - Adding the delete and edit option
@@ -64,7 +64,7 @@ This to-do list of dreams-to-fulfillment mainly includes:
 ## Let's get in touch!
 
 You are very welcome to contact me about the project - suggestions, questions, tips,
-requests, and of course - information about job offers
+requests, and of course - information about job offers :wink:
 
 - My mail: [ofertauber@gmail.com](mailto:ofertauber@gmail.com)
 - My LinkedIn profile [https://www.linkedin.com/in/ofertauber/](https://www.linkedin.com/in/ofertauber/)
@@ -75,5 +75,5 @@ requests, and of course - information about job offers
 
 ## Screenshots
 
-![App Screenshot](https://raw.githubusercontent.com/OferTauber/Katzrin-House-Booking-App/main/docs/Login-cell.png)
-![App Screenshot](https://raw.githubusercontent.com/OferTauber/Katzrin-House-Booking-App/main/docs/calander-cell.png)
+![App Screenshot](./docs/Login-cell.png)
+![App Screenshot](./docs/calander-cell.png)
