@@ -16,3 +16,8 @@ html {
   font-size: 10px;
   font-family: 'Heebo', sans-serif;
 }
+
+#root {
+  max-width: 550px;
+  margin: auto;
+}
