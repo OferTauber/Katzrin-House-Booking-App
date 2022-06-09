@@ -1,4 +1,4 @@
-# Golan Highest House App
+# :house_with_garden: Golan Highest House App :open_book:
 
 React-based web-app for managing my family's holiday home in Katzrin
 
