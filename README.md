@@ -42,7 +42,7 @@ application -
 - JS
 - React
 - Identify users using "Google Identity"
-- The dates are processed using JS torque
+- The dates are processed using MonentJS 
 
 ## Component's structure
 
