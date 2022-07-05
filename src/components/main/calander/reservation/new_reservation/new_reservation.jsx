@@ -16,6 +16,7 @@ const NewReservation = ({
   const [datesAreFree, setDatesAreFree] = useState(true);
   const [openInvitation, setOpenInvitation] = useState(true);
   const { user } = useUser();
+  // console.log(reservationsList);
   const allTakenDates = findAllTakenDates(reservationsList);
 
   useEffect(() => {
@@ -107,8 +108,11 @@ const onDateChange = (event, callback) => {
 
 const findAllTakenDates = (reservationsList) => {
   const allTakenDates = [];
-
+  // console.log(reservationsList);
+  // console.log(reservationsList[0]);
+  // console.log(reservationsList[0].datesArr);
   for (const reservation of reservationsList) {
+    if (!reservation.datesArr) reservation.datesArr = [];
     reservation.datesArr.reduce((acc, cur) => {
       acc.push(cur.format('YYYY-MM-DD'));
       return acc;
